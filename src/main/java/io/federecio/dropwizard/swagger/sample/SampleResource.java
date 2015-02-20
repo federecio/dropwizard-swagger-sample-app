@@ -2,11 +2,10 @@ package io.federecio.dropwizard.swagger.sample;
 
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
+import com.wordnik.swagger.annotations.ApiParam;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 /**
@@ -34,5 +33,19 @@ public class SampleResource {
     @Path("/hello-with-query-param")
     public Response getWithQueryParam(@QueryParam("name") String name) {
         return Response.ok(new SamplePojo("Hello " + name, 444)).build();
+    }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @ApiOperation(
+            value = "Get access token",
+            notes = "Authenticate user and get a access token.",
+            response = SamplePojo.class
+    )
+    public SamplePojo postForToken(
+            @FormParam("username") @ApiParam(defaultValue = "username") String username,
+            @FormParam("password") @ApiParam(defaultValue = "q") String password
+    ) {
+        return new SamplePojo(username, 1234);
     }
 }
