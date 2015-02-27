@@ -17,7 +17,8 @@
         <dependency>
             <groupId>io.federecio</groupId>
             <artifactId>dropwizard-swagger</artifactId>
-            <version>0.5.3</version>
+            <!--version>0.5.3</version-->
+            <version>0.5.4-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
