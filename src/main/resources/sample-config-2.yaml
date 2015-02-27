@@ -1,0 +1,8 @@
+server:
+  type: simple
+  applicationContextPath: /app
+  adminContextPath: /admin
+  connector:
+    type: http
+    port: 9999
+name: test app

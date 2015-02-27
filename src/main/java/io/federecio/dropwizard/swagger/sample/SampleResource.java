@@ -13,6 +13,7 @@ import javax.ws.rs.core.Response;
  */
 @Path("/sample")
 @Api("/sample")
+@Produces(MediaType.APPLICATION_JSON)
 public class SampleResource {
 
     @GET
