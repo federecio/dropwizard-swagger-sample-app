@@ -21,6 +21,20 @@
         </dependency>
     </dependencies>
 
+		<repositories>
+			<repository>
+				<id>sonatype-nexus-snapshots</id>
+				<name>Sonatype Nexus Snapshots</name>
+				<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+				<releases>
+					<enabled>false</enabled>
+				</releases>
+				<snapshots>
+					<enabled>true</enabled>
+				</snapshots>
+			</repository>
+		</repositories>
+
     <build>
         <plugins>
             <plugin>
@@ -57,10 +71,8 @@
                         </goals>
                         <configuration>
                             <transformers>
-                                <transformer
-                                        implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-                                <transformer
-                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <mainClass>io.federecio.dropwizard.swagger.sample.SampleApplication</mainClass>
                                 </transformer>
                             </transformers>
